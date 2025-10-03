@@ -1,6 +1,6 @@
 {
   "name": "formthinker",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "React UI helper. Generate interactive form based on given schema",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
