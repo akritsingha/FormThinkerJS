@@ -1,5 +1,5 @@
 {
-  "name": "formthinkerjs",
+  "name": "formthinker",
   "version": "1.0.0",
   "description": "React UI helper. Generate interactive form based on given schema",
   "main": "dist/index.js",
@@ -62,10 +62,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/formthinkerjs.git"
+    "url": "https://github.com/akrit_singha/formthinker.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/formthinkerjs/issues"
+    "url": "https://github.com/akrit_singha/formthinker/issues"
   },
-  "homepage": "https://github.com/yourusername/formthinkerjs#readme"
+    "homepage": "https://github.com/akrit_singha/formthinker#readme"
 }

@@ -1,4 +1,4 @@
-# FormThinkerJS
+# FormThinker
 
 A powerful React component library for generating interactive forms based on schema definitions. FormThinkerJS provides a flexible and customizable way to create dynamic forms with built-in Tailwind CSS styling.
 
@@ -15,14 +15,14 @@ A powerful React component library for generating interactive forms based on sch
 ## Installation
 
 ```bash
-npm install formthinkerjs
+npm install formthinker
 ```
 
 ## Quick Start
 
 ```jsx
 import React, { useState } from 'react';
-import { FormThinker } from 'formthinkerjs';
+import { FormThinker } from 'formthinker';
 
 function App() {
   const [formData, setFormData] = useState({});
@@ -120,7 +120,7 @@ FormThinkerJS uses Tailwind CSS for styling. The components are designed to work
 FormThinkerJS is built with pure JavaScript and works seamlessly with any React project:
 
 ```javascript
-import { FormThinker } from 'formthinkerjs';
+import { FormThinker } from 'formthinker';
 
 const MyForm = () => {
   const [data, setData] = useState({});
@@ -141,7 +141,7 @@ To contribute to FormThinkerJS:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/formthinkerjs.git
+git clone https://github.com/akrit_singha/formthinker.git
 
 # Install dependencies
 npm install
@@ -163,4 +163,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Support
 
-If you encounter any issues or have questions, please file an issue on [GitHub](https://github.com/yourusername/formthinkerjs/issues).
+If you encounter any issues or have questions, please file an issue on [GitHub](https://github.com/akrit_singha/formthinker/issues).
