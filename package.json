@@ -1,0 +1,55 @@
+{
+  "name": "formthinkerjs",
+  "version": "1.0.0",
+  "description": "React UI helper. Generate interactive form based on given schema",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "form",
+    "schema",
+    "ui",
+    "component",
+    "form-builder",
+    "dynamic-form"
+  ],
+  "author": "Akrit Singha",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "immer": "^10.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-terser": "^0.4.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "rollup": "^3.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.0",
+    "tailwindcss": "^3.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/formthinkerjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/formthinkerjs/issues"
+  },
+  "homepage": "https://github.com/yourusername/formthinkerjs#readme"
+}
