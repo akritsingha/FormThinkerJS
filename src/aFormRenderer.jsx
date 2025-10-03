@@ -1,5 +1,5 @@
-import {memo, useCallback} from 'react'
-import { FormWidget } from './export';
+import React, {memo, useCallback} from 'react'
+import FormWidget from './bFormWidget.jsx';
 import { produce } from 'immer';
 
 const FormThinker = memo(({

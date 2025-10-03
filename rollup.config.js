@@ -21,7 +21,6 @@ module.exports = {
     },
   ],
   plugins: [
-    peerDepsExternal(),
     resolve({
       browser: true,
       extensions: ['.js', '.jsx'],

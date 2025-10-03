@@ -1,6 +1,6 @@
 
-import {memo, useMemo} from 'react'
-import { FormHeaderPill } from './export';
+import React, {memo, useMemo} from 'react'
+import FormHeaderPill from './dFormHeaderPill.jsx';
 
 const FormHeader = memo(({
     tabs,

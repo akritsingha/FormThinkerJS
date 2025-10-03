@@ -1,4 +1,4 @@
-import { memo, useState, useCallback, useRef, useEffect } from 'react'
+import React, { memo, useState, useCallback, useRef, useEffect } from 'react'
 
 const MultipleCheckbox = memo(({ label, description, options = [], value = [], onChange, fieldpath, disabled = false }) => {
     const [localValue, setLocalValue] = useState(value ?? []);

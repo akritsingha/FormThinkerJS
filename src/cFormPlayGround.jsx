@@ -1,4 +1,4 @@
-import {memo, useState, Suspense, lazy, useMemo} from 'react'
+import React, {memo, useState, Suspense, useMemo} from 'react'
 import { 
     Input, 
     Checkbox, 

@@ -1,5 +1,6 @@
-import {memo, useState, Suspense, useMemo, useEffect} from 'react'
-import { FormHeader, FormPlayGround } from './export';
+import React, {memo, useState, Suspense, useMemo, useEffect} from 'react'
+import FormHeader from './cFormHeader.jsx';
+import FormPlayGround from './cFormPlayGround.jsx';
 
 const FormWidget = memo(({
     schema,

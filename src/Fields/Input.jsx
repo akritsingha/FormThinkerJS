@@ -1,4 +1,4 @@
-import {memo, useState, useCallback, useRef, useEffect} from 'react'
+import React, {memo, useState, useCallback, useRef, useEffect} from 'react'
 
 const Input = memo(({ label, schema, placeHolder, value, onChange, fieldpath }) => {
     const [localValue, setLocalValue] = useState(value ?? '');
