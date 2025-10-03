@@ -33,7 +33,8 @@ module.exports = {
     }),
     commonjs(),
     postcss({
-      extract: true,
+      extract: false,
+      inject: true,
       minimize: true,
       plugins: [
         require('tailwindcss'),

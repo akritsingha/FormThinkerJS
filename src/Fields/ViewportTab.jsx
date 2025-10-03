@@ -11,11 +11,6 @@ const ViewportTab = memo(({
     activeDeviceClass,
 }) => {
 
-    console.log('ViewportTab rendering -')
-    
-
-    
-
 
   return (
     <div>

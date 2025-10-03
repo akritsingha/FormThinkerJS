@@ -8,6 +8,6 @@ module.exports = {
   },
   plugins: [],
   corePlugins: {
-    preflight: false, // Disable Tailwind's base styles to avoid conflicts
+    preflight: true, // Enable Tailwind's base styles for consistent styling
   },
 }

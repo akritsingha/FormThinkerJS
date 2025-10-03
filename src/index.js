@@ -1,3 +1,6 @@
+// Import styles
+import './styles.css';
+
 // Main FormThinker component
 export { default as FormThinker } from './aFormRenderer.jsx';
 
