@@ -9,9 +9,8 @@ A powerful React component library for generating interactive forms based on sch
 - 🔧 **Customizable**: Extensive customization options
 - 📱 **Responsive**: Mobile-first design approach
 - 🎯 **JavaScript**: Pure JavaScript implementation
-- ⚡ **Performance**: Optimized with React lazy loading and throttling
+- ⚡ **Performance**: Optimized with React lazy loading
 - 🧩 **Modular**: Use individual components or the complete form builder
-- ⏱️ **Throttled Updates**: Configurable throttling to optimize performance
 
 ## Installation
 
@@ -64,34 +63,6 @@ function App() {
 }
 
 export default App;
-```
-
-## Props
-
-### FormThinker Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `schema` | `object` | - | JSON schema object defining the form structure |
-| `data` | `object` | - | Current form data object |
-| `setData` | `function` | - | Function to update form data |
-| `throttle` | `number` | `300` | Throttle delay in milliseconds for form updates |
-
-### Throttling
-
-The `throttle` prop controls how often form updates are processed. This is useful for:
-
-- **Performance optimization**: Reduces the frequency of state updates during rapid user input
-- **Debouncing**: Prevents excessive API calls or expensive operations
-- **Smooth UX**: Provides better user experience during fast typing
-
-```jsx
-<FormThinker 
-  schema={schema} 
-  data={formData} 
-  setData={setFormData}
-  throttle={500} // 500ms throttle
-/>
 ```
 
 ## Components

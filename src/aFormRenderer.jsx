@@ -1,4 +1,4 @@
-import React, {memo, useCallback, useRef} from 'react'
+import React, {memo, useCallback} from 'react'
 import FormWidget from './bFormWidget.jsx';
 import { produce } from 'immer';
 
@@ -8,76 +8,58 @@ const FormThinker = memo(({
     setData,
     throttle = 300
 }) => {    
-    const throttleTimeoutRef = useRef(null);
-    const pendingUpdateRef = useRef(null);
-
     const handleChange = useCallback((fieldPath, fieldValue, remove=false)=>{
         const pathArray = Array.isArray(fieldPath) ? fieldPath : [fieldPath];
 
-        // Store the latest update
-        pendingUpdateRef.current = { pathArray, fieldValue, remove };
-
-        // Clear existing timeout
-        if (throttleTimeoutRef.current) {
-            clearTimeout(throttleTimeoutRef.current);
-        }
-
-        // Set new timeout
-        throttleTimeoutRef.current = setTimeout(() => {
-            const update = pendingUpdateRef.current;
-            if (update) {
-                setData(prev => produce(prev, draft => {
-                    let current = draft;
-                    if (update.remove) {
-                        // Remove the key from the data
-                        for (let i = 0; i < update.pathArray.length - 1; i++) {
-                            const key = update.pathArray[i];
-                            if (current[key] === undefined || current[key] === null) {
-                                return; // Key doesn't exist, nothing to remove
-                            }
-                            current = current[key];
-                        }
-                        // Delete the final key
-                        delete current[update.pathArray[update.pathArray.length - 1]];
-                        update.pathArray.pop();
-
-                        let condition = update.pathArray.length > 0;
-                        while (condition){
-                            let current = draft;
-                            for (let i = 0; i < update.pathArray.length - 1; i++) {
-                                const key = update.pathArray[i];
-                                if (current[key] === undefined || current[key] === null) {
-                                    return; // Key doesn't exist, nothing to remove
-                                }
-                                current = current[key];
-                            }
-                            const obj = current[update.pathArray[update.pathArray.length - 1]];
-                            if(obj && typeof obj === 'object' && Object.keys(obj).length === 0){
-                                delete current[update.pathArray[update.pathArray.length - 1]];
-                                update.pathArray.pop();
-                                if(update.pathArray.length === 0){
-                                     
-                                }
-                            }else{
-                                condition = false;
-                            }
-                        }
-                    } else {
-                        // Set the value (existing logic)
-                        for (let i = 0; i < update.pathArray.length - 1; i++) {
-                            const key = update.pathArray[i];
-                            if (current[key] === undefined || current[key] === null || typeof current[key] !== 'object' || Array.isArray(current[key])) {
-                                current[key] = {};
-                            }
-                            current = current[key];
-                        }
-                        current[update.pathArray[update.pathArray.length - 1]] = update.fieldValue;
+        setData(prev => produce(prev, draft => {
+            let current = draft;
+            if (remove) {
+                // Remove the key from the data
+                for (let i = 0; i < pathArray.length - 1; i++) {
+                    const key = pathArray[i];
+                    if (current[key] === undefined || current[key] === null) {
+                        return; // Key doesn't exist, nothing to remove
                     }
-                }));
-                pendingUpdateRef.current = null;
+                    current = current[key];
+                }
+                // Delete the final key
+                delete current[pathArray[pathArray.length - 1]];
+                pathArray.pop();
+
+                let condition = pathArray.length > 0;
+                while (condition){
+                    let current = draft;
+                    for (let i = 0; i < pathArray.length - 1; i++) {
+                        const key = pathArray[i];
+                        if (current[key] === undefined || current[key] === null) {
+                            return; // Key doesn't exist, nothing to remove
+                        }
+                        current = current[key];
+                    }
+                    const obj = current[pathArray[pathArray.length - 1]];
+                    if(obj && typeof obj === 'object' && Object.keys(obj).length === 0){
+                        delete current[pathArray[pathArray.length - 1]];
+                        pathArray.pop();
+                        if(pathArray.length === 0){
+                             
+                        }
+                    }else{
+                        condition = false;
+                    }
+                }
+            } else {
+                // Set the value (existing logic)
+                for (let i = 0; i < pathArray.length - 1; i++) {
+                    const key = pathArray[i];
+                    if (current[key] === undefined || current[key] === null || typeof current[key] !== 'object' || Array.isArray(current[key])) {
+                        current[key] = {};
+                    }
+                    current = current[key];
+                }
+                current[pathArray[pathArray.length - 1]] = fieldValue;
             }
-        }, throttle);
-    }, [throttle, setData])
+        }));
+    }, [])
     
 	const textClass = 'text-xs text-black';
     return (
