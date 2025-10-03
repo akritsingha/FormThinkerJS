@@ -29,7 +29,11 @@ module.exports = {
       babelHelpers: 'bundled',
       exclude: 'node_modules/**',
       extensions: ['.js', '.jsx'],
-      presets: ['@babel/preset-react'],
+      presets: [
+        ['@babel/preset-react', {
+          runtime: 'automatic'
+        }]
+      ],
     }),
     commonjs(),
     postcss({
@@ -42,5 +46,5 @@ module.exports = {
       ],
     }),
   ],
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-dom', 'react/jsx-runtime'],
 };
