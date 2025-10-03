@@ -1,27 +1,36 @@
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import postcss from 'rollup-plugin-postcss';
-import { terser } from '@rollup/plugin-terser';
+const resolve = require('@rollup/plugin-node-resolve');
+const commonjs = require('@rollup/plugin-commonjs');
+const peerDepsExternal = require('rollup-plugin-peer-deps-external');
+const postcss = require('rollup-plugin-postcss');
+const babel = require('@rollup/plugin-babel');
 
-export default {
+module.exports = {
   input: 'src/index.js',
   output: [
     {
-      file: 'dist/index.js',
+      dir: 'dist',
       format: 'cjs',
       sourcemap: true,
+      entryFileNames: 'index.js',
     },
     {
-      file: 'dist/index.esm.js',
+      dir: 'dist',
       format: 'esm',
       sourcemap: true,
+      entryFileNames: 'index.esm.js',
     },
   ],
   plugins: [
     peerDepsExternal(),
     resolve({
       browser: true,
+      extensions: ['.js', '.jsx'],
+    }),
+    babel({
+      babelHelpers: 'bundled',
+      exclude: 'node_modules/**',
+      extensions: ['.js', '.jsx'],
+      presets: ['@babel/preset-react'],
     }),
     commonjs(),
     postcss({
@@ -32,7 +41,6 @@ export default {
         require('autoprefixer'),
       ],
     }),
-    terser(),
   ],
   external: ['react', 'react-dom'],
 };

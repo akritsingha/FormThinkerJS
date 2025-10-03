@@ -1,7 +1,7 @@
 import React, { useState, memo, useMemo, useEffect } from 'react'
 import classNames from 'classnames';
 import ViewportTab from './ViewportTab';
-import { RiResetLeftLine } from "react-icons/ri";
+import { RiRefreshLine } from "react-icons/ri";
 
 // Constants
 const DEVICE_SEPARATOR = '|-|D|-|';
@@ -158,7 +158,7 @@ const withWrapper = (WrappedComponent) => {
             onClick={handleResetClick}
             aria-label="Reset field value"
           >
-            <RiResetLeftLine className='text-white w-full h-full'/>
+            <RiRefreshLine className='text-white w-full h-full'/>
           </button>
         </div>
 

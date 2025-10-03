@@ -1,6 +1,6 @@
 
 import {memo} from 'react'
-import { RiResetLeftLine } from "react-icons/ri";
+import { RiRefreshLine } from "react-icons/ri";
 
 const FormHeaderPill = memo(({
     name,
