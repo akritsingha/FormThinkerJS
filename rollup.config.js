@@ -8,16 +8,16 @@ module.exports = {
   input: 'src/index.js',
   output: [
     {
-      dir: 'dist',
+      file: 'dist/index.js',
       format: 'cjs',
       sourcemap: true,
-      entryFileNames: 'index.js',
+      inlineDynamicImports: true,
     },
     {
-      dir: 'dist',
+      file: 'dist/index.esm.js',
       format: 'esm',
       sourcemap: true,
-      entryFileNames: 'index.esm.js',
+      inlineDynamicImports: true,
     },
   ],
   plugins: [

@@ -1,16 +1,14 @@
-import { lazy } from 'react';
-
 // Main FormThinker component
-export const FormThinker = lazy(() => import('./aFormRenderer.jsx'));
+export { default as FormThinker } from './aFormRenderer.jsx';
 
 // Additional components
-export const FormWidget = lazy(() => import('./bFormWidget.jsx'));
-export const FormHeader = lazy(() => import('./cFormHeader.jsx'));
-export const FormHeaderPill = lazy(() => import('./dFormHeaderPill.jsx'));
-export const FormPlayGround = lazy(() => import('./cFormPlayGround.jsx'));
+export { default as FormWidget } from './bFormWidget.jsx';
+export { default as FormHeader } from './cFormHeader.jsx';
+export { default as FormHeaderPill } from './dFormHeaderPill.jsx';
+export { default as FormPlayGround } from './cFormPlayGround.jsx';
 
 // Field components
 export * from './Fields';
 
 // Default export
-export default FormThinker;
+export { default as default } from './aFormRenderer.jsx';
