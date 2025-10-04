@@ -94,4 +94,6 @@ const FormThinker = memo(({
   );
 });
 
+FormThinker.displayName = 'FormThinker';
+
 export default FormThinker;
