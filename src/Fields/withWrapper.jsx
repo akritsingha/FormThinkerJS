@@ -1,4 +1,4 @@
-import React, { useState, memo, useMemo, useEffect } from 'react'
+import React, { useState, memo, useMemo, useEffect, Activity } from 'react'
 import classNames from 'classnames';
 import ViewportTab from './ViewportTab';
 import { RiRefreshLine } from "react-icons/ri";
@@ -165,61 +165,60 @@ const withWrapper = (WrappedComponent) => {
         {/* Wrapped form component */}
         <WrappedComponent {...props} onChange={handleChange} value={currentValue} />
     
-        {/* Device-specific value display panel */}
-        {isDeviceSupportEnabled && (
+        {/* Activity-enhanced device-specific value display panel */}
+        <Activity mode={isDeviceSupportEnabled ? "visible" : "hidden"}>
           <div className='px-3 pt-3'>
             <div className='shadow-[0_-5px_10px_rgba(0,0,0,0.25)] rounded-t-xl'>
               {/* Mobile device row */}
-              <div onClick={() => setActiveDeviceType(DEVICE_TYPES.MOBILE)} className={`flex justify-between items-center p-2 cursor-pointer transition-colors ${
-                    !deviceValues[0] ? 'bg-red-50 hover:bg-red-100' : 'hover:bg-gray-50'
-                  } ${!deviceValues[0] ? 'text-red-600 font-medium' : ''}
-                  `}>
-                <div className='flex gap-2 items-center' >
-                  <div className={`w-3 h-5 ${
-                    isDeviceSupportEnabled && activeDeviceType === DEVICE_TYPES.MOBILE 
-                      ? activeDeviceIndicatorClass 
-                      : deviceIndicatorClass
-                  }`}></div>
-                  <span>Mobile</span>
+                <div onClick={() => setActiveDeviceType(DEVICE_TYPES.MOBILE)} className={`flex justify-between items-center p-2 cursor-pointer transition-colors ${
+                      !deviceValues[0] ? 'bg-red-50 hover:bg-red-100' : 'hover:bg-gray-50'
+                    } ${!deviceValues[0] ? 'text-red-600 font-medium' : ''}
+                    `}>
+                  <div className='flex gap-2 items-center' >
+                    <div className={`w-3 h-5 ${
+                      isDeviceSupportEnabled && activeDeviceType === DEVICE_TYPES.MOBILE 
+                        ? activeDeviceIndicatorClass 
+                        : deviceIndicatorClass
+                    }`}></div>
+                    <span>Mobile</span>
+                  </div>
+                  {deviceValues[0] || 'Empty'}
                 </div>
-                {deviceValues[0] || 'Empty'}
-              </div>
               
               {/* Tablet device row */}
-
-              <div onClick={() => setActiveDeviceType(DEVICE_TYPES.TABLET)} className={`flex justify-between items-center p-2 cursor-pointer transition-colors ${
-                    !deviceValues[1] ? 'bg-red-50 hover:bg-red-100' : 'hover:bg-gray-50'
-                  } ${!deviceValues[1] ? 'text-red-600 font-medium' : ''}
-                  `}>
-                <div className='flex gap-2 items-center' >
-                  <div className={`w-3 h-5 ${
-                    isDeviceSupportEnabled && activeDeviceType === DEVICE_TYPES.TABLET 
-                      ? activeDeviceIndicatorClass 
-                      : deviceIndicatorClass
-                  }`}></div>
-                  <span>Tab</span>
+                <div onClick={() => setActiveDeviceType(DEVICE_TYPES.TABLET)} className={`flex justify-between items-center p-2 cursor-pointer transition-colors ${
+                      !deviceValues[1] ? 'bg-red-50 hover:bg-red-100' : 'hover:bg-gray-50'
+                    } ${!deviceValues[1] ? 'text-red-600 font-medium' : ''}
+                    `}>
+                  <div className='flex gap-2 items-center' >
+                    <div className={`w-3 h-5 ${
+                      isDeviceSupportEnabled && activeDeviceType === DEVICE_TYPES.TABLET 
+                        ? activeDeviceIndicatorClass 
+                        : deviceIndicatorClass
+                    }`}></div>
+                    <span>Tab</span>
+                  </div>
+                  {deviceValues[1] || 'Empty'}
                 </div>
-                {deviceValues[1] || 'Empty'}
-              </div>
-              {/* Desktop device row */}
               
-              <div onClick={() => setActiveDeviceType(DEVICE_TYPES.DESKTOP)} className={`flex justify-between items-center p-2 cursor-pointer transition-colors ${
-                    !deviceValues[2] ? 'bg-red-50 hover:bg-red-100' : 'hover:bg-gray-50'
-                  } ${!deviceValues[2] ? 'text-red-600 font-medium' : ''}
-                  `}>
-                <div className='flex gap-2 items-center' >
-                  <div className={`w-3 h-5 ${
-                    isDeviceSupportEnabled && activeDeviceType === DEVICE_TYPES.DESKTOP 
-                      ? activeDeviceIndicatorClass 
-                      : deviceIndicatorClass
-                  }`}></div>
-                  <span>Desktop</span>
+              {/* Desktop device row */}
+                <div onClick={() => setActiveDeviceType(DEVICE_TYPES.DESKTOP)} className={`flex justify-between items-center p-2 cursor-pointer transition-colors ${
+                      !deviceValues[2] ? 'bg-red-50 hover:bg-red-100' : 'hover:bg-gray-50'
+                    } ${!deviceValues[2] ? 'text-red-600 font-medium' : ''}
+                    `}>
+                  <div className='flex gap-2 items-center' >
+                    <div className={`w-3 h-5 ${
+                      isDeviceSupportEnabled && activeDeviceType === DEVICE_TYPES.DESKTOP 
+                        ? activeDeviceIndicatorClass 
+                        : deviceIndicatorClass
+                    }`}></div>
+                    <span>Desktop</span>
+                  </div>
+                  {deviceValues[2] || 'Empty'}
                 </div>
-                {deviceValues[2] || 'Empty'}
-              </div>
             </div>
           </div>
-        )} 
+        </Activity> 
 
         
       </div>
