@@ -12,7 +12,9 @@ import {
     ArrayOfObject,
     withWrapper
 } from './Fields';
-import { FormWidget } from '.';
+
+// Lazy load FormWidget to break circular dependency
+const FormWidget = lazy(() => import('./bFormWidget.jsx'));
 
 const FormPlayGround = memo(({
     schema,
@@ -212,13 +214,19 @@ const FormPlayGround = memo(({
             case "object":
                 // Nested object - use FormWidget
                 return (
-                    <FormWidget
-                        schema={schema}
-                        formData={value}
-                        nested={nested + 1}
-                        onChange={onChange}
-                        fieldpath={updatedPath}
-                    />
+                    <Suspense fallback={
+                        <div className="animate-pulse bg-gray-200 h-32 rounded p-4">
+                            Loading nested form...
+                        </div>
+                    }>
+                        <FormWidget
+                            schema={schema}
+                            formData={value}
+                            nested={nested + 1}
+                            onChange={onChange}
+                            fieldpath={updatedPath}
+                        />
+                    </Suspense>
                 );
 
             case "select":
