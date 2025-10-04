@@ -1,8 +1,11 @@
 // Import styles
 import './styles.css';
 
-// Main FormThinker component
-export { default as FormThinker } from './aFormRenderer.jsx';
+// Main FormThinker component - import first
+import FormThinkerDefault from './aFormRenderer.jsx';
+
+// Named export
+export { FormThinkerDefault as FormThinker };
 
 // Additional components
 export { default as FormWidget } from './bFormWidget.jsx';
@@ -14,4 +17,4 @@ export { default as FormPlayGround } from './cFormPlayGround.jsx';
 export * from './Fields';
 
 // Default export
-export { default as default } from './aFormRenderer.jsx';
+export default FormThinkerDefault;

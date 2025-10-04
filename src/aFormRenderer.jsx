@@ -3,7 +3,7 @@ import FormWidget from './bFormWidget.jsx';
 import { produce } from 'immer';
 import throttleFn from 'lodash.throttle';
 
-const FormThinker = memo(({
+const FormThinkerComponent = ({
   schema,
   data,
   setData,
@@ -92,8 +92,11 @@ const FormThinker = memo(({
       </div>
     </div>
   );
-});
+};
 
-FormThinker.displayName = 'FormThinker';
+FormThinkerComponent.displayName = 'FormThinker';
+
+const FormThinker = memo(FormThinkerComponent);
 
 export default FormThinker;
+export { FormThinkerComponent };

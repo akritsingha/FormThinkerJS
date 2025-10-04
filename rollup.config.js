@@ -12,6 +12,7 @@ module.exports = {
       format: 'cjs',
       sourcemap: true,
       inlineDynamicImports: true,
+      exports: 'named'
     },
     {
       file: 'dist/index.esm.js',
